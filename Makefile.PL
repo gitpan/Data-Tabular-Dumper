@@ -5,4 +5,7 @@ WriteMakefile(
     'NAME'	=> 'Data::Tabular::Dumper',
     'VERSION_FROM' => 'Dumper.pm', # finds $VERSION
     dist=>{COMPRESS=>'gzip -9f', EXT=>'gz'},
+    'PREREQ_PM'     => {
+            'Data::Denter'=>0.1
+    }
 );

@@ -1,21 +1,29 @@
-# $Id$
+# $Id: CSV.pm,v 1.1.1.1 2006/03/24 03:53:10 fil Exp $
 package Data::Tabular::Dumper::CSV;
 use strict;
 use Text::CSV_XS;
-use Data::Dumper;
+
+use Data::Tabular::Dumper::Writer;
+
+use vars qw( @ISA );
+@ISA = qw( Data::Tabular::Dumper::Writer );
 
 ###########################################################
 sub open 
 {
     my($package, $param)=@_;
-    my($file, $attr)=@$param;
 
-    my $fh=eval { local *FH;};
-    open $fh, ">$file" or die "Unable to open $file: $!\n";
-    
-    my $csv=Text::CSV_XS->new($attr);
+    my( $file, $attr ) = @$param;
+
+    my $self = $package->SUPER::open( $file );
+
+    my $csv=Text::CSV_XS->new( $attr );
     die "No CSV\n" unless $csv;
-    return bless {fh=>$fh, csv=>$csv}, $package;
+
+    my $fh = $self->{fh};
+    $self->{csv} = $csv;
+
+    return $self;
 }
 
 
@@ -23,8 +31,9 @@ sub open
 sub close
 {
     my($self)=@_;
-    undef $self->{fh};
-    undef $self->{csv};
+
+    $self->SUPER::close();
+    delete $self->{csv};
 }
 
 ###########################################################
@@ -37,10 +46,55 @@ sub write
 }
 
 ###########################################################
-*fields=\&write;
+sub page_start
+{
+    my( $self, $name ) = @_;
+    my $fh=$self->{fh};
+    print $fh "$name\n";
+}
+
+###########################################################
+sub page_end
+{
+    my( $self, $name ) = @_;
+    my $fh=$self->{fh};
+    print $fh "\n";
+}
 
 1;
 
 __END__
 
-$Log$
+=head1 NAME
+
+Data::Tabular::Dumper::CSV - CSV writer for Data::Tabular::Dumper
+
+=head1 SYNOPSIS
+
+    use Data::Tabular::Dumper;
+    use Data::Tabular::Dumper::XML;
+
+    $date=strftime('%Y%m%d', localtime);
+
+    my $dumper = Data::Tabular::Dumper->open(
+                            CSV => [ "$date.csv", { eol=>"\n" } ],
+                        );
+=head1 DESCRIPTION
+
+Please see the documentation in L<Data::Tabular::Dumper>.
+
+=head1 AUTHOR
+
+Philip Gwyn <perl at pied.nu>
+
+=head1 SEE ALSO
+
+L<Data::Tabular::Dumper>.
+
+=cut
+
+
+$Log: CSV.pm,v $
+Revision 1.1.1.1  2006/03/24 03:53:10  fil
+Initial Import
+
