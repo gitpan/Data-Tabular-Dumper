@@ -1,4 +1,4 @@
-# $Id: XML.pm,v 1.1.1.1 2006/03/24 03:53:11 fil Exp $
+# $Id: XML.pm 105 2006-03-24 03:53:10Z fil $
 package Data::Tabular::Dumper::XML;
 use strict;
 
@@ -130,8 +130,8 @@ L<Data::Tabular::Dumper>.
 
 
 
-$Log: XML.pm,v $
-Revision 1.1.1.1  2006/03/24 03:53:11  fil
-Initial Import
+$Log$
+Revision 1.1  2006/03/24 03:53:11  fil
+Initial revision
 
 

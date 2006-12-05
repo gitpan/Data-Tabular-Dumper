@@ -1,11 +1,35 @@
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
+
+
+my %prereq = (
+    Text::CSV_XS => 0.2,
+    Spreadsheet::WriteExcel => 0.26
+);
+foreach my $m ( keys %prereq ) {
+    eval qq{use $m;};
+    next if $@;
+    delete $prereq{$m};
+}
+
+if( %prereq ) {
+    warn <<WARN; 
+The following modules are not installed.  While not strictly necessary to
+use Data::Tabular::Dumper, it will greatly enhance your experience. 
+
+WARN
+
+    foreach my $m ( sort keys %prereq ) {
+        my $ret = prompt( qq(Require $m?), "n" );
+        next if $ret =~ /^Y$/i;
+        delete $prereq{$m};
+    }
+}
+
 WriteMakefile(
     'NAME'	=> 'Data::Tabular::Dumper',
     'VERSION_FROM' => 'Dumper.pm', # finds $VERSION
     dist=>{COMPRESS=>'gzip -9f', EXT=>'gz'},
     'PREREQ_PM'     => {
-            'Data::Denter'=>0.1
+            %prereq
     }
 );

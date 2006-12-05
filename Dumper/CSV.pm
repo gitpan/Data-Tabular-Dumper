@@ -1,4 +1,4 @@
-# $Id: CSV.pm,v 1.1.1.1 2006/03/24 03:53:10 fil Exp $
+# $Id: CSV.pm 105 2006-03-24 03:53:10Z fil $
 package Data::Tabular::Dumper::CSV;
 use strict;
 use Text::CSV_XS;
@@ -94,7 +94,7 @@ L<Data::Tabular::Dumper>.
 =cut
 
 
-$Log: CSV.pm,v $
-Revision 1.1.1.1  2006/03/24 03:53:10  fil
-Initial Import
+$Log$
+Revision 1.1  2006/03/24 03:53:10  fil
+Initial revision
 

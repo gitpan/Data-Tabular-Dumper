@@ -1,4 +1,4 @@
-# $Id: String.pm,v 1.1.1.1 2006/03/24 03:53:11 fil Exp $
+# $Id: String.pm 105 2006-03-24 03:53:10Z fil $
 package Data::Tabular::Dumper::String;
 use strict;
 
@@ -86,7 +86,7 @@ L<Data::Tabular::Dumper>.
 =cut
 
 
-$Log: String.pm,v $
-Revision 1.1.1.1  2006/03/24 03:53:11  fil
-Initial Import
+$Log$
+Revision 1.1  2006/03/24 03:53:11  fil
+Initial revision
 

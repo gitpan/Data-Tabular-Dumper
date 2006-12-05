@@ -1,4 +1,4 @@
-# $Id: Dumper.pm,v 1.2 2006/04/13 02:10:56 fil Exp $
+# $Id: Dumper.pm 189 2006-12-05 02:41:46Z fil $
 package Data::Tabular::Dumper;
 
 use strict;
@@ -6,7 +6,7 @@ use vars qw( $VERSION @ISA @EXPORT_OK );
 
 use Carp;
 
-$VERSION="0.05";
+$VERSION="0.06";
 
 require Exporter;
 @ISA = qw( Exporter );
@@ -146,10 +146,10 @@ sub dump
         $self->__dump( $state );
     }    
 
-    my $q=1;
+    my $q1=1;
     foreach my $p ( @{ $state->{pages} } ) {
-        my $name = "Page $q";
-        $q++;
+        my $name = "Page $q1";
+        $q1++;
         $name = $p->{name} if exists $p->{name};
         $self->page_start( $name );
         $self->__dump( $p );

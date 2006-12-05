@@ -1,4 +1,4 @@
-# $Id: Writer.pm,v 1.1.1.1 2006/03/24 03:53:11 fil Exp $
+# $Id: Writer.pm 105 2006-03-24 03:53:10Z fil $
 package Data::Tabular::Dumper::Writer;
 use strict;
 
@@ -101,7 +101,7 @@ L<Data::Tabular::Dumper>.
 =cut
 
 
-$Log: Writer.pm,v $
-Revision 1.1.1.1  2006/03/24 03:53:11  fil
-Initial Import
+$Log$
+Revision 1.1  2006/03/24 03:53:11  fil
+Initial revision
 

@@ -1,11 +1,10 @@
 #!/usr/bin/perl -w
-# $Id: 30_dump.t,v 1.2 2006/04/13 02:10:56 fil Exp $
+# $Id: 30_dump.t 189 2006-12-05 02:41:46Z fil $
 
 use strict;
 
 use Test::More ( tests=>55 );
 use Data::Tabular::Dumper;
-use Data::Denter;
 
 pass( 'loaded' );
 

@@ -1,11 +1,10 @@
 #!/bin/perl -w
-# $Id: 20_analyse.t,v 1.1.1.1 2006/03/24 03:53:11 fil Exp $
+# $Id: 20_analyse.t 189 2006-12-05 02:41:46Z fil $
 
 use strict;
 
 use Test::More ( tests=>10 );
 use Data::Tabular::Dumper;
-use Data::Denter;
 
 pass( 'loaded' );
 
@@ -107,7 +106,7 @@ is_deeply( $state, {
         #    maxdepth=>2,
         }
     ]
-}, "HoH" ) or die "HoH=", Denter $state;
+}, "HoH" );
 
 
 
@@ -138,7 +137,7 @@ is_deeply( $state, {
                     { depth=>3, data=> [4..5], maxdepth => 3 } ]
         }
     ]
-  }, "LoLoL") or die "LoLoL=", Denter $state;
+  }, "LoLoL") or die "LoLoL=", Dumper $state;
 
 
 
@@ -237,7 +236,7 @@ is_deeply( $state, {
           name => 'honk'
         }
     ]
-}, "HoHoH" ) or die "HoHoH=", Denter $state;
+}, "HoHoH" );
 
 #############################################
 my $dataLoLoH = [
@@ -274,7 +273,7 @@ is_deeply( $state, {
             maxdepth => 3
         }
     ]
-}, "LoLoH" ) or die "LoLoH=", Denter $state;
+}, "LoLoH" );
 
 
 #############################################
@@ -285,15 +284,13 @@ my $dataHoHoL = {
 
 $state = $dumper->analyse( $dataHoHoL );
 
-# die "HoHoL=", Denter $state;
-
 $dumper->close;
 
 unlink( $params{XML}[0] ) or die "Unable to unlink $params{XML}[0]: $!";
 
 __END__
 
-$Log: 20_analyse.t,v $
-Revision 1.1.1.1  2006/03/24 03:53:11  fil
-Initial Import
+$Log$
+Revision 1.1  2006/03/24 03:53:11  fil
+Initial revision
 
