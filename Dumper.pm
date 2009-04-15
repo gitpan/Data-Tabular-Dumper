@@ -1,4 +1,4 @@
-# $Id: Dumper.pm 189 2006-12-05 02:41:46Z fil $
+# $Id: Dumper.pm 456 2009-04-15 12:20:59Z fil $
 package Data::Tabular::Dumper;
 
 use strict;
@@ -6,7 +6,7 @@ use vars qw( $VERSION @ISA @EXPORT_OK );
 
 use Carp;
 
-$VERSION="0.06";
+$VERSION="0.07";
 
 require Exporter;
 @ISA = qw( Exporter );
@@ -807,7 +807,16 @@ C<close> should call C<page_end> if there is one pending.
 
 =head1 AUTHOR
 
-Philip Gwyn <perl at pied.nu>
+Philip Gwyn E<lt>gwyn-at-cpan.orgE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2005-2009 by Philip Gwyn
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.8 or,
+at your option, any later version of Perl 5 you may have available.
+
 
 =head1 SEE ALSO
 

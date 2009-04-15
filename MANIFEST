@@ -2,11 +2,14 @@ Changes
 Dumper.pm
 Makefile.PL
 MANIFEST
+README
 Dumper/CSV.pm
 Dumper/Excel.pm
 Dumper/XML.pm
 Dumper/Writer.pm
 Dumper/String.pm
+t/01_pod.t
+t/02_pod_coverage.t
 t/10_files.t
 t/20_analyse.t
 t/30_dump.t

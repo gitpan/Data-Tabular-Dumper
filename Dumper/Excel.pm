@@ -1,4 +1,4 @@
-# $Id: Excel.pm 105 2006-03-24 03:53:10Z fil $
+# $Id: Excel.pm 456 2009-04-15 12:20:59Z fil $
 package Data::Tabular::Dumper::Excel;
 use strict;
 
@@ -109,7 +109,7 @@ Please see the documentation in L<Data::Tabular::Dumper>.
 
 =head1 AUTHOR
 
-Philip Gwyn <perl at pied.nu>
+Philip Gwyn E<lt>gwyn-at-cpan.orgE<gt>
 
 =head1 SEE ALSO
 
